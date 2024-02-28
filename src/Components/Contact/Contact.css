@@ -1,0 +1,116 @@
+.contact-container {
+    margin: auto;
+    margin-bottom: 180px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container h2 {
+    margin: auto;
+    padding-bottom: 50px;
+    font-weight: 500;
+
+    font-size: 70px;
+    text-transform: uppercase;
+}
+
+.contact-block {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form form input {
+    width: 450px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    border: none;
+    border-bottom: 0.5px solid #ffff;
+    color: #ffff;
+}
+
+.form form input:focus {
+    outline: none;
+    /* border: none; */
+    box-shadow: none;
+    color: #ffff;
+}
+
+.form form input::placeholder {
+    font-size: 14px;
+}
+
+.form form input:valid {
+    /* outline: none;
+    box-shadow: none;
+    color: #ffff; */
+}
+
+.form form textarea {
+    width: 450px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    border: none;
+    border-bottom: 0.5px solid #ffff;
+    color: #ffff;
+
+    resize: none;
+}
+
+.form form textarea:focus {
+    outline: none;
+    box-shadow: none;
+    color: #ffff;
+}
+
+.form form textarea::placeholder {
+    font-size: 14px;
+}
+
+.button-div {
+    display: flex;
+    justify-content: end;
+}
+
+.button-div button {
+    margin: 10px 5px;
+    padding: 5px 35px;
+
+    border: 1px solid #DAA8BD;
+    border-radius: 30px;
+    font-size: 15px;
+
+    transition: all 300ms ease;
+}
+
+.button-div button:hover {
+    background: #DAA8BD;
+    color: #1C1C1C;
+}
+
+.photo-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-div img {
+    width: 90%;
+    padding: 10px;
+    padding-bottom: 40px;
+    background: #ffff;
+
+    border: 1px solid #ffff;
+    border-radius: 5px;
+}

@@ -1,0 +1,87 @@
+.projects {
+    margin: auto;
+    margin-bottom: 180px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-header {
+    margin: auto;
+    padding-bottom: 50px;
+    font-weight: 500;
+
+    font-size: 70px;
+    text-transform: uppercase;
+    
+}
+
+.projects-gallery {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.projects-card {
+    width: 28%;
+    padding: 40px;
+    border: 0.5px solid #ffff;
+    border-radius: 10px;
+
+    font-size: 15px;
+    color: #ffff;
+
+    position: relative;
+}
+
+.projects-card h3 {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.projects-card h3 a {
+    padding: 5px 0px;
+    padding-right: 20px;
+    transition: all 200ms ease;
+    border-bottom: 0.5px solid #ffff;
+    
+}
+.projects-card h3 a:hover {
+    border-bottom: 0.5px solid transparent;
+}
+
+.project-desc {
+    padding-bottom: 30px;
+}
+
+.project-stack {
+    padding-bottom: 70px;
+}
+
+.stack {
+    margin-bottom: 10px;
+}
+
+.repository-div {
+    position: absolute; 
+    bottom: 0;
+    padding-bottom: 40px;
+}
+
+.repository-div a {
+    padding-bottom: 5px;
+    padding-right: 20px;
+    border-bottom: 0.5px solid rgb(100, 100, 100);
+
+    color: rgb(100, 100, 100);
+    font-size: 13px;
+
+    transition: all 200ms ease;
+}
+
+.repository-div a:hover {
+    color: #ffff;
+    border-bottom: 0.5px solid #ffff;
+}
