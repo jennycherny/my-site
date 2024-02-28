@@ -18,7 +18,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/sendFormData', {
+            const response = await fetch('https://evchern-cv.vercel.app/api/sendFormData', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
