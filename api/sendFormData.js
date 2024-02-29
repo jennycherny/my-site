@@ -40,3 +40,5 @@ app.post('/api/sendFormData', async (req, res) => {
         res.status(500).json({ success: false, error: 'Error sending email', details: error.message });
     }
 });
+
+module.exports = app;
