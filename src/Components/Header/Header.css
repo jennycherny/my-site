@@ -6,10 +6,24 @@
     margin-top: 30px;
     padding: 20px 100px;
     border-bottom: 0.8px solid #DAA8BD;
+
+    @media(max-width: 1200px) {
+        padding: 20px;
+    }
+
+    @media(max-width: 800px) {
+        padding: 20px 10px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .header-block {
     display: flex;
+
+    @media(max-width: 800px) {
+        padding: 7px;
+    }
 }
 
 .header-block li {
@@ -17,6 +31,11 @@
     align-items: center;
     text-transform: uppercase;
     display: flex;
+    text-wrap: nowrap;
+
+    @media(max-width: 800px) {
+        padding: 0px 7px;
+    }
 }
 
 .header-block a {
@@ -42,6 +61,10 @@
     border-radius: 30px;
     transition: all 300ms ease;
     cursor: pointer;
+
+    @media(max-width: 750px) {
+        margin: 0px 5px;
+    }
 }
 
 .cv-button:hover {

@@ -1,15 +1,65 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSpring, animated, useTrail } from 'react-spring';
 import './Contact.css';
 import photo from '../../images/my-photo.png';
 
-const Contact = () => {
+const Contact = ({ id }) => {
+
+    const [onScreen, setOnScreen] = useState(false);
+    const contactRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setOnScreen(entry.isIntersecting);
+            },
+            {
+                threshold: 0.1, // Когда более 50% элемента видно, считаем его видимым
+            }
+        );
+
+        if (contactRef.current) {
+            observer.observe(contactRef.current);
+        }
+
+        return () => {
+            if (contactRef.current) {
+                observer.unobserve(contactRef.current);
+            }
+        };
+    }, []);
+
+    const formSpring = useSpring({
+        opacity: onScreen ? 1 : 0,
+        transform: onScreen ? 'translateY(0)' : 'translateY(50px)',
+        from: { opacity: 0, transform: 'translateY(0)' },
+        delay: 200
+    });
+
+    const photoSpring = useSpring({
+        opacity: onScreen ? 1 : 0,
+        transform: onScreen ? 'translateY(0)' : 'translateY(50px)',
+        from: { opacity: 0, transform: 'translateY(0)' },
+        delay: 600
+    });
+
+
+    const headerSpring = useSpring({
+        opacity: onScreen ? 1 : 0,
+        transform: onScreen ? 'translateY(0)' : 'translateY(50px)', // Настройте анимацию для заголовка
+        from: { opacity: 0, transform: 'translateY(0px)' } // Начальное состояние анимации для заголовка
+    });
+
+
     
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
+
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,23 +78,33 @@ const Contact = () => {
             if (!response.ok) {
                 throw new Error('Failed to send message');
             }
-            alert('Your message has been sent successfully!');
+            setSuccessMessage("Thank you! I'll contact you later.");
             setFormData({
                 name: '',
                 email: '',
                 message: ''
                 });
-            } catch (error) {
-                console.error('Error sending message:', error);
-                alert('An error occurred while sending your message. Please try again later.');
-            }
+            setErrorMessage('');
+
+            setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000);
+        } catch (error) {
+            console.error('Error sending message:', error);
+            setErrorMessage('Something went wrong, try again later.');
+            setSuccessMessage('');
+
+            setTimeout(() => {
+                setErrorMessage('');
+            }, 3000);
+        }
     };
 
     return (
-        <div className='contact-container'>
-            <h2>Contact</h2>
+        <div className='contact-container' id={id} ref={contactRef}>
+            <animated.h2 className='contact-header' style={headerSpring}>Contact</animated.h2>
             <div className="contact-block">
-                <div className="form">
+                <animated.div className="form" style={formSpring}>
                     <form onSubmit={handleSubmit}>
                         <input 
                             type="text" 
@@ -75,14 +135,16 @@ const Contact = () => {
                             required
                         />
                         <div className="button-div">
-                          <button type="submit">submit</button>  
+                            <p className={`success-message ${successMessage && 'active'}`}>{successMessage}</p>
+                            <p className={`error-message ${errorMessage && 'active'}`}>{errorMessage}</p>
+                            <button type="submit">submit</button>  
                         </div>
                         
                     </form>
-                </div>
-                <div className="photo-div">
+                </animated.div>
+                <animated.div className="photo-div" style={photoSpring}>
                     <img src={photo} alt="" />
-                </div>
+                </animated.div>
             </div>
         </div>
     );

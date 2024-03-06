@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSpring, animated, useTrail } from 'react-spring';
 import './Projects.css';
 
-const Projects = () => {
+const Projects = ({ id }) => {
+    const [onScreen, setOnScreen] = useState(false);
+    const projectsRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setOnScreen(entry.isIntersecting);
+            },
+            {
+                threshold: 0.1, // Когда более 10% элемента видно, считаем его видимым
+            }
+        );
+
+        if (projectsRef.current) {
+            observer.observe(projectsRef.current);
+        }
+
+        return () => {
+            if (projectsRef.current) {
+                observer.unobserve(projectsRef.current);
+            }
+        };
+    }, []);
+
     const projects = [
         {
             id: 1,
@@ -28,30 +53,41 @@ const Projects = () => {
             link: "",
         }
     ];
+
+    const projectsTrail = useTrail(projects.length, {
+        opacity: onScreen ? 1 : 0,
+        transform: onScreen ? 'translateY(0)' : 'translateY(150px)', 
+        from: { opacity: 0, transform: 'translateY(0px)' }, 
+        delay: 300 
+    });
+
+    const headerSpring = useSpring({
+        opacity: onScreen ? 1 : 0,
+        transform: onScreen ? 'translateY(0)' : 'translateY(50px)', 
+        from: { opacity: 0, transform: 'translateY(0px)' } 
+    });
     
     return (
-        <div className="projects">
-            <h2 className='projects-header'>Projects</h2>
-            <div className='projects-gallery'>
-                {projects.map(project => (
-                    <div className="projects-card" key={project.id}>
-                        <h3><a href={project.link} target="_blank" rel="noopener noreferrer">{project.title}
-                        </a></h3>
-                        <p className='project-desc'>{project.description}</p>
+            <div className="projects" ref={projectsRef} id={id}>
+                <animated.h2 className='projects-header' style={headerSpring}>Projects</animated.h2>
+                <div className='projects-gallery'>
+                {projectsTrail.map(({ opacity, transform }, index) => (
+                    <animated.div className="projects-card" key={projects[index].id} style={{ opacity, transform }}>
+                        <h3><a href={projects[index].link} target="_blank" rel="noopener noreferrer">{projects[index].title}</a></h3>
+                        <p className='project-desc'>{projects[index].description}</p>
                         <div className='project-stack'>
                             <p className='stack'>Stack:</p>
-                            {project.stack.map((item, index) => (
-                            <p key={index}>{item}{index !== project.stack.length - 1 && ','}</p>
-                                ))}
+                            {projects[index].stack.map((item, i) => (
+                                <p key={i}>{item}{i !== projects[index].stack.length - 1 && ','}</p>
+                            ))}
                         </div>
                         <div className='repository-div'>
-                            <a href={project.repository} target="_blank" rel="noopener noreferrer">Repository</a>
+                            <a href={projects[index].repository} target="_blank" rel="noopener noreferrer">Repository</a>
                         </div>
-                    </div>
+                    </animated.div>
                 ))}
+                </div>
             </div>
-        </div>
-        
     );
 };
 

@@ -26,9 +26,9 @@ app.post('/api/sendFormData', async (req, res) => {
             to: 'evchern.it@gmail.com',
             subject: 'Сообщение с сайта-резюме',
             text: `
-                Name: ${formData.name}
+                Имя: ${formData.name}
                 Email: ${formData.email}
-                Message: ${formData.message}
+                Сообщение: ${formData.message}
             `
         };
 

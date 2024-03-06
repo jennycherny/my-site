@@ -1,19 +1,41 @@
 .projects {
-    margin: auto;
-    margin-bottom: 180px;
+    margin: 40px auto;
+    padding-top: 50px;
+
     align-items: center;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 1200px) {
+        margin: 0px auto;
+        padding-top: 10px;
+    }
+
+    @media(max-width: 800px) {
+        padding-top: 50px;
+    }
+
+    @media(max-width: 500px) {
+        padding-top: 30px;
+    }
 }
 
 .projects-header {
     margin: auto;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
     font-weight: 500;
 
     font-size: 70px;
     text-transform: uppercase;
     
+    @media(max-width: 800px) {
+        font-size: 60px;
+        padding-bottom: 30px;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 40px;
+    }
 }
 
 .projects-gallery {
@@ -21,6 +43,21 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 1200px) {
+        width: 95%;
+    }
+
+    @media(max-width: 800px) {
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    @media(max-width: 500px) {
+        flex-direction: column;
+        width: 70%;
+    }
 }
 
 .projects-card {
@@ -33,12 +70,35 @@
     color: #ffff;
 
     position: relative;
+
+    @media(max-width: 1200px) {
+        width: 32%;
+    }
+
+    @media(max-width: 800px) {
+        width: 47%;
+        margin-bottom: 20px;
+
+        padding: 30px;
+    }
+
+    @media(max-width: 500px) {
+        width: 100%;
+        font-size: 14px;
+
+        padding: 20px 30px;
+    }
 }
 
 .projects-card h3 {
     margin-bottom: 30px;
     font-weight: normal;
     font-size: 15px;
+    text-wrap: nowrap;
+
+    @media(max-width: 800px) {
+        
+    }
 }
 
 .projects-card h3 a {
@@ -54,6 +114,11 @@
 
 .project-desc {
     padding-bottom: 30px;
+
+
+    @media(max-width: 500px) {
+        width: 90%;
+    }
 }
 
 .project-stack {

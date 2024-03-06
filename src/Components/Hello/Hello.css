@@ -1,9 +1,25 @@
 .hello-container {
-    margin: 80px 120px;
+    margin: 50px 120px;
+    margin-bottom: 0px;
 
     text-transform: uppercase;
     font-size: 100px;
     font-weight: 500;
+
+    @media(max-width: 1200px) {
+        margin: 30px;
+        margin-bottom: 0px;
+    }
+
+    @media(max-width: 800px) {
+        font-size: 60px;
+    }
+
+    @media(max-width: 500px) {
+        margin: 60px 30px;
+        margin-bottom: 0px;
+        font-size: 48px;
+    }
 }
 
 .hello-container span {
