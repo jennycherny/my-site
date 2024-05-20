@@ -152,7 +152,6 @@ input:-webkit-autofill:focus
     padding: 5px 35px;
 
     border: 1px solid #DAA8BD;
-    border-radius: 30px;
     font-size: 15px;
 
     transition: all 300ms ease;
@@ -200,5 +199,4 @@ input:-webkit-autofill:focus
     background: #ffff;
 
     border: 1px solid #ffff;
-    border-radius: 5px;
 }

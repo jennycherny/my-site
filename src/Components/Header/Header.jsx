@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { BsLinkedin } from "react-icons/bs";
@@ -11,10 +11,13 @@ import svg from '../../images/about.svg'
 
 const Header = () => {
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
 
     const changeLanguage = (lng) => {
         console.log('Changing language to', lng);
         i18n.changeLanguage(lng);
+        localStorage.setItem('language', lng);
+        navigate(`/${lng}`);
     };
 
     const scrollToSection = (id) => {
@@ -24,9 +27,9 @@ const Header = () => {
     return (
         <div className="header">
                 <ul className="header-block">
-                    <li className='link'><a href='/#' target="_blank" rel="noopener noreferrer"><BsLinkedin size={24}/></a></li>
-                    <li className='link'><a href='/#' target="_blank" rel="noopener noreferrer"><FaGithub size={26}/></a></li>
-                    <li className='link'><a href='/#' target="_blank" rel="noopener noreferrer"><FaTelegram size={26}/></a></li>
+                    <li className='link'><a href='https://www.linkedin.com/in/evgeniyachern/' target="_blank" rel="noopener noreferrer"><BsLinkedin size={24}/></a></li>
+                    <li className='link'><a href='https://github.com/jennycherny' target="_blank" rel="noopener noreferrer"><FaGithub size={26}/></a></li>
+                    {/* <li className='link'><a href='#' target="_blank" rel="noopener noreferrer"><FaTelegram size={26}/></a></li> */}
                     <li><button className='cv-button'>{t("header.DownloadCV")}</button></li>
                 </ul> 
 
