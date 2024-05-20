@@ -50,7 +50,9 @@
         "name": "your name",
         "email": "email",
         "message": "your message",
-        "submit": "submit"
+        "submit": "submit",
+        "successMessage": "Thank you! I'll contact you later.",
+        "errorMessage": "Something went wrong, try again later."
     }
 
     

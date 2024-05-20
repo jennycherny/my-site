@@ -80,7 +80,7 @@ const Contact = ({ id }) => {
             if (!response.ok) {
                 throw new Error('Failed to send message');
             }
-            setSuccessMessage("Thank you! I'll contact you later.");
+            setSuccessMessage(t("contact.successMessage"));
             setFormData({
                 name: '',
                 email: '',
@@ -93,7 +93,7 @@ const Contact = ({ id }) => {
             }, 3000);
         } catch (error) {
             console.error('Error sending message:', error);
-            setErrorMessage('Something went wrong, try again later.');
+            setErrorMessage(t("contact.successMessage"));
             setSuccessMessage('');
 
             setTimeout(() => {

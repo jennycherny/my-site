@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
       app.use(cors());
@@ -15,15 +16,15 @@ app.post('/api/sendFormData', async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'evchern.it@gmail.com',
-                pass: 'wggk fghc vclf eubw'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
 
         // Параметры письма
         const mailOptions = {
-            from: 'evchern.it@gmail.com',
-            to: 'evchern.it@gmail.com',
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
             subject: 'Сообщение с сайта-резюме',
             text: `
                 Имя: ${formData.name}
