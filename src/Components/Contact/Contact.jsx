@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSpring, animated, useTrail } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 import './Contact.css';
 import photo from '../../images/my-photo.png';
 
@@ -7,6 +8,7 @@ const Contact = ({ id }) => {
 
     const [onScreen, setOnScreen] = useState(false);
     const contactRef = useRef(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -14,7 +16,7 @@ const Contact = ({ id }) => {
                 setOnScreen(entry.isIntersecting);
             },
             {
-                threshold: 0.1, // Когда более 50% элемента видно, считаем его видимым
+                threshold: 0.1, 
             }
         );
 
@@ -46,8 +48,8 @@ const Contact = ({ id }) => {
 
     const headerSpring = useSpring({
         opacity: onScreen ? 1 : 0,
-        transform: onScreen ? 'translateY(0)' : 'translateY(50px)', // Настройте анимацию для заголовка
-        from: { opacity: 0, transform: 'translateY(0px)' } // Начальное состояние анимации для заголовка
+        transform: onScreen ? 'translateY(0)' : 'translateY(50px)', 
+        from: { opacity: 0, transform: 'translateY(0px)' }
     });
 
 
@@ -102,13 +104,13 @@ const Contact = ({ id }) => {
 
     return (
         <div className='contact-container' id={id} ref={contactRef}>
-            <animated.h2 className='contact-header' style={headerSpring}>Contact</animated.h2>
+            <animated.h2 className='contact-header' style={headerSpring}>{t('contact.header')}</animated.h2>
             <div className="contact-block">
                 <animated.div className="form" style={formSpring}>
                     <form onSubmit={handleSubmit}>
                         <input 
                             type="text" 
-                            placeholder="your name"
+                            placeholder={t('contact.name')}
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
@@ -117,7 +119,7 @@ const Contact = ({ id }) => {
                         />
                         <input 
                             type="email" 
-                            placeholder="email"
+                            placeholder={t('contact.email')}
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
@@ -127,7 +129,7 @@ const Contact = ({ id }) => {
                         <textarea 
                             cols="30" 
                             rows="10" 
-                            placeholder="your message"
+                            placeholder={t('contact.message')}
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
@@ -137,7 +139,7 @@ const Contact = ({ id }) => {
                         <div className="button-div">
                             <p className={`success-message ${successMessage && 'active'}`}>{successMessage}</p>
                             <p className={`error-message ${errorMessage && 'active'}`}>{errorMessage}</p>
-                            <button type="submit">submit</button>  
+                            <button type="submit">{t('contact.submit')}</button>  
                         </div>
                         
                     </form>

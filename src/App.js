@@ -9,7 +9,6 @@ import Contact from './Components/Contact/Contact';
 
 import './App.css';
 
-
 function App() {
   const [activeSection, setActiveSection] = useState('');
 
@@ -29,13 +28,15 @@ function App() {
 
 
   return (
-    <div className="app">
-      <Header />
-      <Hello />
-      <About id="about" />
-      <Projects id="projects" />
-      <Contact id="contact"/>
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <Hello />
+        <About id="about" />
+        <Projects id="projects" />
+        <Contact id="contact"/>
+      </div>
+    </Router>
   );
 };
 

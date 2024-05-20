@@ -1,4 +1,5 @@
 .hello-container {
+    max-width: 30%;
     margin: 50px 120px;
     margin-bottom: 0px;
 
@@ -22,6 +23,6 @@
     }
 }
 
-.hello-container span {
+.hello-container div {
     color: #ffff;
 }

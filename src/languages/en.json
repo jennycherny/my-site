@@ -1,0 +1,57 @@
+{ 
+    "header": {
+        "aboutMe": "About me",
+        "projects": "Projects",
+        "contact": "Contact",
+        "DownloadCV": "Download CV"
+    },
+
+    "hello":{
+        "welcomePink": "hello! i'm",
+        "welcomeWhite": "Frontend-developer"
+    }, 
+
+    "about":{
+        "aboutHeader": "About me",
+        "aboutText1": "Hello! My name is Evgenia Chernyavskaya and I'm a front-end developer. In my work I use HTML, CSS, JavaScript and React. I can turn design layouts into responsive and intuitive interfaces and develop web application functionality to meet business needs.",
+        "aboutText2": "Before development, I worked as a journalist for many years and became a master of sports in soft skills: I get along with anyone, have creative thinking and work well in a team.",
+        "skillsHeader": "Skills",
+        "skillsText1": "Confident knowledge: \nHTML, CSS, JavaScript, React, Figma.",
+        "skillsText2": "Familiar with technology: \nTypeScript, Sass, Tailwind CSS, Bootstrap, Webpack, Vite, Node.js, Nodemailer, Express.",
+        "experienceHeader": "Experience",
+        "experienceText1": "November 2023 - to the present",
+        "experienceText2": "Frontend developer (freelance)",
+        "experienceText3": "- Thinking through the project architecture in compliance with customer requirements: JavaScript/React.\n- Creating a web application design in Figma.\n- Adapting the interface layout for mobile devices CSS/Sass.\n- Backend development: connected the Supabase database to the site via API.\n- Adding the function of processing orders from customers using Node JS, Nodemaile.",
+        "educationHeader": "Education",
+        "educationText1": "May 2023 - November 2023",
+        "educationText2": "Udemy. Complete course on JavaScript + React - from scratch to results.",
+        "educationText3": "September 2017 - May 2021",
+        "educationText4": "Perm State University. Youth Leadership Practices."
+    },
+
+    "projects": {
+        "header": "Projects",
+        "stack": "Stack:",
+        "details": "Details",
+        "repository": "Repository",
+
+        "project1": {
+        "title": "Lucciola books",
+        "description": "Website for an online book store and library operating in Tbilisi, Georgia"
+        },
+
+        "project2": {
+        "title": "Hangman Game",
+        "description": "A game familiar from childhood, where the player needs to guess the word by choosing the letters correctly"
+        }
+    },
+    "contact": {
+        "header": "contact",
+        "name": "your name",
+        "email": "email",
+        "message": "your message",
+        "submit": "submit"
+    }
+
+    
+  }

@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated, useTrail } from 'react-spring';
+import { useTranslation } from 'react-i18next';
+import Modal from './../Modal/Modal';
 import './Projects.css';
+
 
 const Projects = ({ id }) => {
     const [onScreen, setOnScreen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
     const projectsRef = useRef(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -30,29 +36,40 @@ const Projects = ({ id }) => {
     const projects = [
         {
             id: 1,
-            title: "Hangman Game",
-            description: "A game familiar from childhood, where the player needs to guess the word by choosing the letters correctly",
-            stack: ["JavaScript", "Tailvind", "Vite"],
-            repository: "https://github.com/jennycherny/hangman-game",
-            link: "https://jennycherny.github.io/hangman-game/",
-        },
-        {
-            id: 2,
-            title: "Lucciola books",
-            description: "Website for an online book store and library operating in Tbilisi, Georgia",
+            title: t("projects.project1.title"),
+            description: t("projects.project1.description"),
             stack: ["React", "Node.js", "Express.js", "Supabase"],
             repository: "https://github.com/jennycherny/Lucciola_Books",
             link: "https://lucciola-books.vercel.app/",
         },
         {
-            id: 3,
-            title: "Project 3",
-            description: "Description for Project 3",
-            stack: [],
-            repository: "https://github.com/project3",
-            link: "",
-        }
+            id: 2,
+            title: t("projects.project2.title"),
+            description: t("projects.project2.description"),
+            stack: ["JavaScript", "Tailvind", "Vite"],
+            repository: "https://github.com/jennycherny/hangman-game",
+            link: "https://jennycherny.github.io/hangman-game/",
+        },
+        // {
+        //     id: 3,
+        //     title: "Project 3",
+        //     description: "Description for Project 3",
+        //     stack: [],
+        //     repository: "https://github.com/project3",
+        //     link: "",
+        // }
     ];
+
+    const showDetails = (project) => {
+        setSelectedProject(project);
+        setShowModal(true);
+    };
+
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedProject(null);
+    };
 
     const projectsTrail = useTrail(projects.length, {
         opacity: onScreen ? 1 : 0,
@@ -69,24 +86,30 @@ const Projects = ({ id }) => {
     
     return (
             <div className="projects" ref={projectsRef} id={id}>
-                <animated.h2 className='projects-header' style={headerSpring}>Projects</animated.h2>
+                <animated.h2 className='projects-header' style={headerSpring}>{t('projects.header')}</animated.h2>
                 <div className='projects-gallery'>
                 {projectsTrail.map(({ opacity, transform }, index) => (
                     <animated.div className="projects-card" key={projects[index].id} style={{ opacity, transform }}>
                         <h3><a href={projects[index].link} target="_blank" rel="noopener noreferrer">{projects[index].title}</a></h3>
                         <p className='project-desc'>{projects[index].description}</p>
                         <div className='project-stack'>
-                            <p className='stack'>Stack:</p>
+                            <p className='stack'>{t('projects.stack')}</p>
                             {projects[index].stack.map((item, i) => (
                                 <p key={i}>{item}{i !== projects[index].stack.length - 1 && ','}</p>
                             ))}
                         </div>
                         <div className='repository-div'>
-                            <a href={projects[index].repository} target="_blank" rel="noopener noreferrer">Repository</a>
+                            {/* <p>
+                                <button onClick={() => showDetails(projects[index])} className='down-link'>Details</button>
+                            </p> */}
+                            <p>
+                                <a href={projects[index].repository} target="_blank" rel="noopener noreferrer" className='down-link'>{t('projects.repository')}</a>
+                            </p>
                         </div>
                     </animated.div>
                 ))}
                 </div>
+                <Modal show={showModal} onClose={closeModal} project={selectedProject} />
             </div>
     );
 };

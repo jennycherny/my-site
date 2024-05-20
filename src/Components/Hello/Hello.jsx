@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
+import { useTranslation } from 'react-i18next';
+
 import './Hello.css';
 
 const Hello = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,13 +35,16 @@ const Hello = () => {
         <animated.div style={{ opacity, transform }}>
             <div>
                 <h1 className="hello-container">
-                    hello! <br />
+                  {t ("hello.welcomePink")}
+                  <div>
+                    {t ("hello.welcomeWhite")}
+                  </div>
+                    {/* hello! <br />
                     i'm <br />
-
                     <span>
                         Web-<br />
                         developer  
-                    </span>
+                    </span> */}
                 </h1>
             </div>
         </animated.div>

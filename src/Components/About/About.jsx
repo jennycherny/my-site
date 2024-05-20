@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated, useTrail } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 import './About.css';
 
 const About = ({ id }) => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,30 +32,35 @@ const About = ({ id }) => {
 
     const items = [
         <div className="about-item">
-            <h3>About me</h3>
-            <p>
-                Hello, I'm Evgeniia Cherniavskaia, a passionate Junior Web Developer with a knack for turning designs into responsive and visually appealing websites. In my work I use HTML, CSS, JavaScript, React and Node JS. 
-                <br /><br />
-                I previously worked as a journalist and got the necessary soft skills: communication and emotional intelligence, the ability to work in a team. I'm a creative thinker and can work with a lot of information.
-            </p>
+            <h3>{t ("about.aboutHeader")}</h3>
+            <p>{t ("about.aboutText1")}</p><br />
+            <p>{t ("about.aboutText2")}</p>
         </div>,
         <div className="about-item">
-            <h3>Experience</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula justo bibendum dolor auctor aliquam. Morbi et tellus lacinia, sagittis mi sit amet, cursus purus. Integer vehicula augue porttitor, mattis nunc in, vestibulum turpis. Nullam justo dui, ullamcorper eu tincidunt non, pharetra in ante. Cras in est nulla. 
-            </p>
+            <h3>{t ("about.skillsHeader")}</h3>
+            {t("about.skillsText1").split('\n').map((line, index) => (
+                <p key={index}>{line}<br /></p>
+            ))}
+            <br />
+            {t("about.skillsText2").split('\n').map((line, index) => (
+                <p key={index}>{line}<br /></p>
+            ))}
         </div>,
         <div className="about-item">
-            <h3>Skills</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula justo bibendum dolor auctor aliquam. Morbi et tellus lacinia, sagittis mi sit amet, cursus purus. Integer vehicula augue porttitor, mattis nunc in, vestibulum turpis. Nullam justo dui, ullamcorper eu tincidunt non, pharetra in ante. Cras in est nulla. 
-            </p>
+            <h3>{t ("about.experienceHeader")}</h3>
+            <p>{t ("about.experienceText2")}</p>
+            <p>{t ("about.experienceText1")}</p><br />
+            {/* <p>{t ("about.experienceText3")}</p> */}
+            {t("about.experienceText3").split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+            ))}
         </div>,
         <div className="about-item">
-            <h3>Education</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula justo bibendum dolor auctor aliquam. Morbi et tellus lacinia, sagittis mi sit amet, cursus purus. Integer vehicula augue porttitor, mattis nunc in, vestibulum turpis. Nullam justo dui, ullamcorper eu tincidunt non, pharetra in ante. Cras in est nulla. 
-            </p>
+            <h3>{t ("about.educationHeader")}</h3>
+            <p>{t ("about.educationText1")}</p>
+            <p>{t ("about.educationText2")}</p><br />
+            <p>{t ("about.educationText3")}</p>
+            <p>{t ("about.educationText4")}</p>
         </div>
     ];
 
@@ -81,7 +88,7 @@ const About = ({ id }) => {
     return (
         <animated.div style={{ opacity, transform }} id={id}>
             <div className='about-container'>
-            <div className="about-left" style={{ opacity: leftOpacity, transform: leftTransform }}>
+                <div className="about-left" style={{ opacity: leftOpacity, transform: leftTransform }}>
                     {trail.map((props, index) => (
                         index < halfLength && (
                             <animated.div key={index} style={props}>
@@ -90,6 +97,7 @@ const About = ({ id }) => {
                         )
                     ))}
                 </div>
+
                 <div className="about-right" style={{ opacity: rightOpacity, transform: rightTransform }}>
                     {trail.map((props, index) => (
                         index >= halfLength && (

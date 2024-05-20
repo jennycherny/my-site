@@ -32,9 +32,17 @@
 }
 
 .contact-block {
-    width: 80%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
+}
+
+.form, .photo-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .form form {
@@ -170,6 +178,7 @@ input:-webkit-autofill:focus
 }
 
 .photo-div {
+    max-width: 260px;
     display: flex;
     flex-direction: column;
     align-items: center;
