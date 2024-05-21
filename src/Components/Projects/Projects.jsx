@@ -18,7 +18,7 @@ const Projects = ({ id }) => {
                 setOnScreen(entry.isIntersecting);
             },
             {
-                threshold: 0.1, // Когда более 10% элемента видно, считаем его видимым
+                threshold: 0.1,
             }
         );
 

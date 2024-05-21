@@ -34,25 +34,27 @@ const Contact = ({ id }) => {
     const formSpring = useSpring({
         opacity: onScreen ? 1 : 0,
         transform: onScreen ? 'translateY(0)' : 'translateY(50px)',
-        from: { opacity: 0, transform: 'translateY(0)' },
-        delay: 200
+        from: { opacity: 0, transform: 'translateY(50px)' },
+        config: { tension: 200, friction: 20 },
+        delay: 500
     });
 
     const photoSpring = useSpring({
         opacity: onScreen ? 1 : 0,
         transform: onScreen ? 'translateY(0)' : 'translateY(50px)',
-        from: { opacity: 0, transform: 'translateY(0)' },
-        delay: 600
+        from: { opacity: 0, transform: 'translateY(50px)' },
+        config: { tension: 200, friction: 20 },
+        delay: 700
     });
 
 
     const headerSpring = useSpring({
         opacity: onScreen ? 1 : 0,
         transform: onScreen ? 'translateY(0)' : 'translateY(50px)', 
-        from: { opacity: 0, transform: 'translateY(0px)' }
+        from: { opacity: 0, transform: 'translateY(50px)' },
+        config: { tension: 200, friction: 20 },
+        delay: 200
     });
-
-
     
     const [formData, setFormData] = useState({
         name: '',
