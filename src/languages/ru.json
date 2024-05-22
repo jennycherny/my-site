@@ -16,7 +16,7 @@
         "aboutText1": "Привет! Меня зовут Евгения Чернявская, и я фронтенд-разработчик. В своей работе я использую HTML, CSS, JavaScript и React. Я могу превращать дизайн-макеты в адаптивные и интуитивно понятные интерфейсы. Разрабатываю функционал веб-приложений под потребности бизнеса.",
         "aboutText2": "До разработки я много лет проработала журналистом и стала мастером спорта по софт-скилам: нахожу язык с кем угодно, творчески мыслю и отлично работаю в команде.",
         "skillsHeader": "Навыки",
-        "skillsText1": "Уверенные знания: \nHTML, CSS, JavaScript, React, Figma.",
+        "skillsText1": "Уверенные знания: \nHTML, CSS, JavaScript, React, React Router, Figma.",
         "skillsText2": "Знакома с технологиями: \nTypeScript, Sass, Tailwind CSS, Bootstrap, Webpack, Vite, Node.js, Nodemailer, Express.",
         "experienceHeader": "Опыт",
         "experienceText1": "Ноябрь 2023- по наст. время",
