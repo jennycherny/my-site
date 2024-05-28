@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useTranslation } from 'react-i18next';
 
-import './Hello.css';
+import './Hello.scss';
 
 const Hello = () => {
 
@@ -39,12 +39,6 @@ const Hello = () => {
                   <div>
                     {t ("hello.welcomeWhite")}
                   </div>
-                    {/* hello! <br />
-                    i'm <br />
-                    <span>
-                        Web-<br />
-                        developer  
-                    </span> */}
                 </h1>
             </div>
         </animated.div>

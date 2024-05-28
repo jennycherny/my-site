@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useTranslation } from 'react-i18next';
-import './About.css';
+import './About.scss';
 
 const About = ({ id }) => {
 
@@ -29,7 +29,6 @@ const About = ({ id }) => {
             <h3>{t ("about.experienceHeader")}</h3>
             <p>{t ("about.experienceText2")}</p>
             <p>{t ("about.experienceText1")}</p><br />
-            {/* <p>{t ("about.experienceText3")}</p> */}
             {t("about.experienceText3").split('\n').map((line, index) => (
                 <p key={index}>{line}</p>
             ))}

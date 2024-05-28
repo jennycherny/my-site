@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useTranslation } from 'react-i18next';
-import './Contact.css';
+import './Contact.scss';
 import photo from '../../images/my-photo.png';
 
 const Contact = ({ id }) => {

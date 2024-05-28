@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useTranslation } from 'react-i18next';
 import Modal from './../Modal/Modal';
-import './Projects.css';
+import './Projects.scss';
 
 
 const Projects = ({ id }) => {
     const [onScreen, setOnScreen] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(null);
+    // const [showModal, setShowModal] = useState(false);
+    // const [selectedProject, setSelectedProject] = useState(null);
     const projectsRef = useRef(null);
     const { t } = useTranslation();
 
@@ -60,16 +60,16 @@ const Projects = ({ id }) => {
         // }
     ];
 
-    const showDetails = (project) => {
-        setSelectedProject(project);
-        setShowModal(true);
-    };
+    // const showDetails = (project) => {
+    //     setSelectedProject(project);
+    //     setShowModal(true);
+    // };
 
 
-    const closeModal = () => {
-        setShowModal(false);
-        setSelectedProject(null);
-    };
+    // const closeModal = () => {
+    //     setShowModal(false);
+    //     setSelectedProject(null);
+    // };
 
     const projectsTrail = useTrail(projects.length, {
         opacity: onScreen ? 1 : 0,
@@ -109,7 +109,7 @@ const Projects = ({ id }) => {
                     </animated.div>
                 ))}
                 </div>
-                <Modal show={showModal} onClose={closeModal} project={selectedProject} />
+                {/* <Modal show={showModal} onClose={closeModal} project={selectedProject} /> */}
             </div>
     );
 };

@@ -6,7 +6,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 
-import './Header.css';
+import './Header.scss';
 import svg from '../../images/about.svg'
 
 const Header = () => {

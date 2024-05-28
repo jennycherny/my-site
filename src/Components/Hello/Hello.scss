@@ -1,3 +1,5 @@
+$hover-color: #ffffff;
+
 .hello-container {
     max-width: 30%;
     margin: 50px 120px;
@@ -21,8 +23,8 @@
         margin: 60px 30px;
         font-size: 40px;
     }
-}
 
-.hello-container div {
-    color: #ffff;
+    div {
+        color: $hover-color;
+    }
 }

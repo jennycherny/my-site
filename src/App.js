@@ -8,7 +8,7 @@ import About from './Components/About/About';
 import Projects from './Components/Projects/Projects';
 import Contact from './Components/Contact/Contact';
 
-import './App.css';
+import './App.scss';
 
 const App = () => {
   return (
